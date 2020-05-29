@@ -22,7 +22,7 @@ class ChooseTime extends Component {
                 time:e.target.elements.time.value
             }).then(res=>{
                 console.log(res)
-                window.location.replace("http://localhost:3000/form")
+                // window.location.replace("http://localhost:3000/form")
             })
         }else{
             console.log("error")
