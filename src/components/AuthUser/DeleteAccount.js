@@ -11,7 +11,7 @@ class DeleteAccount extends Component {
           .then(function () {
             localStorage.clear();
             window.location.reload(false);
-            window.location.replace("http://localhost:3000/")
+            window.location.replace("/")
           })
           .catch(function (error) {
             window.alert(error.message)

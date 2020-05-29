@@ -27,7 +27,7 @@ class KontaktForm extends React.Component {
                 status:"booked"
             }).then(res=>{
                 console.log(res)
-                // window.location.replace("http://localhost:3000/success")
+                window.location.replace("/success")
             })
         }else{
             console.log("error")

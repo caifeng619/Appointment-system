@@ -12,10 +12,10 @@ class ResetPassword extends Component {
     e.preventDefault();
     var auth = firebase.auth();
     var emailAddress = e.target.elements.resetEmail.value;
-    // var actionCodeSettings = {
-    //   url: 'http://localhost:3000/userpage',
-    //   handleCodeInApp:false
-    // }
+    var actionCodeSettings = {
+      url: '/userpage',
+      handleCodeInApp:false
+    }
     if(emailAddress !== ""){
       auth
       .sendPasswordResetEmail(emailAddress)

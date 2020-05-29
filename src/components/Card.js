@@ -20,7 +20,7 @@ class Card extends Component {
             }).then(res=>{
                 console.log(res.id)
                 localStorage.setItem("product_id", res.id)
-                // window.location.replace("http://localhost:3000/tid")
+                window.location.replace("/tid")
             })
 
             
