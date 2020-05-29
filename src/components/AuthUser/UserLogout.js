@@ -6,7 +6,6 @@ class UserLogout extends Component {
     componentDidMount(){
         localStorage.clear();
         firebase.auth().signOut();
-        window.location.replace("http://localhost:3000");
         
     }
     render() { 
