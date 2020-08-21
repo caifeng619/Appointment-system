@@ -29,10 +29,10 @@ class Header extends React.Component {
                         <li><Link to="/userpage"><FaUserAlt /> Login</Link></li>
                     </React.Fragment>
                     :<React.Fragment>
-                         <li><Link to="/profile/minabokningar"><FaCalendarAlt /> Mina bokningar</Link></li>
+                        <li><Link to="/profile/minabokningar"><FaCalendarAlt /> Mina bokningar</Link></li>
                         <li><Link to="/profile/userinfo"><FaUserAlt /> Mitt konto</Link></li>
+                        <li><Link to="/logoutuser"><FaUserAlt /> Logout</Link></li>
                     </React.Fragment>}
-                    <li><Link to="/logoutuser"><FaUserAlt /> Logout</Link></li>
                     <li><Link to="/contact"><FaEnvelopeSquare /> Kontakta Oss</Link></li>
                     <li><Link to="/adminsida"><FaUserAlt /> Admin</Link></li>
                 </ul>

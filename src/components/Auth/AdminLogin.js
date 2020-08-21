@@ -33,7 +33,7 @@ class AdminLogin extends Component {
       let role=response.data.user.role.name
       if(role!=="Admin"){
         this.setState({
-          error2:"Du har registrerats nu. Men du saknar behörighet för att komma in till admin dashboard."
+          error2:"Du har registrerats nu. Kontakta Kundservice för att få behörighet att komma in till admin dashboard."
         })
       }else{
         let token=response.data.jwt

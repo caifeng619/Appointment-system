@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import App from "./App";
 import KontaktForm from "./KontaktForm";
 import Notfoundpage from "./Notfoundpage";
-import ChooseTime from "./ChooseTime";
+import CancelBooking from "./CancelBooking";
 import AdminSida from "./Auth/AdminSida";
 import Logout from "./Auth/Logout";
 import AdminProfil from "./Auth/AdminProfil";
@@ -11,7 +11,6 @@ import AddProduct from "./Dashboard/AddProduct";
 import GetProducts from "./Dashboard/GetProducts";
 import UpdateProduct from "./Dashboard/UpdateProduct";
 import DeleteProduct from  "./Dashboard/DeleteProduct";
-import FirebaseTest from "./FirebaseTest";
 import UserPage from "./AuthUser/UserPage";
 import UserLogout from "./AuthUser/UserLogout";
 import ChangePassword from "./AuthUser/ChangePassword";
@@ -32,7 +31,6 @@ class Approute extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route path="/" component={App} exact></Route>
-                    <Route path="/tid" component={ChooseTime} exact></Route>
                     <Route path="/userpage" component={UserPage} exact></Route>
                     <Route path="/form" component={KontaktForm} exact></Route>
                     <Route path="/adminsida" exact component={AdminSida}></Route>
@@ -43,12 +41,12 @@ class Approute extends Component {
                     <Route path="/delete" component={DeleteProduct} exact></Route>
                     <Route path="/logout" component={Logout} exact></Route>
                     <Route path="/logoutuser" component={UserLogout} exact></Route>
-                    <Route path="/fire" component={FirebaseTest} exact></Route>
                     <Route path="/reset" component={ResetPassword} exact></Route>
                     <Route path="/rebook" component={ReBook} exact></Route>
                     <Route path="/profile" component={UserProfile} exact></Route>
                     <Route path="/contact" component={Contact} exact></Route>
                     <Route path="/success" component={BookSuccess} exact></Route>
+                    <Route path="/cancel" component={CancelBooking} exact></Route>
                     <Route path="/profile/changepassword" component={ChangePassword} exact></Route>
                     <Route path="/profile/minabokningar" component={MinaBokningar} exact></Route>
                     <Route path="/profile/userinfo" component={UserInfo} exact></Route>

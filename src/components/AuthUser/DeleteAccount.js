@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "../FirebaseConfig";
-import Nav from "../Nav";
+import SideNav from "../SideNav";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -19,9 +19,9 @@ class DeleteAccount extends Component {
       }
     render() { 
         return (
-          <React.Fragment>
+          <>
             <Header/>
-            <Nav/>
+            <SideNav/>
             <section>
                 <div className="deleteaccount-container">
                 <p>Är du säker att du ska radera ditt konto?</p>
@@ -29,7 +29,7 @@ class DeleteAccount extends Component {
                 </div>
             </section>
             <Footer/>
-          </React.Fragment>
+          </>
          );
     }
 }

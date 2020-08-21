@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import {FaBars, FaTimes} from "react-icons/fa";
-import "../style/_nav.scss";
+import "../style/_sidenav.scss";
 
-class Nav extends Component {
+class SideNav extends Component {
     state={
         isChecked:true,
     }
@@ -37,4 +37,4 @@ class Nav extends Component {
     }
 }
  
-export default Nav;
+export default SideNav;

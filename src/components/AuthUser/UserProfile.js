@@ -4,7 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import "../../style/_userprofile.scss";
 import DeleteAccount from "./DeleteAccount";
-import Nav from "../Nav";
+import SideNav from "../SideNav";
 import {Router} from "@reach/router";
 import MinaBokningar from "./MinaBokningar";
 import AddImage from "./AddImage";
@@ -17,7 +17,7 @@ class UserProfile extends Component {
       <React.Fragment>
         <Header/>
         <main className="user-profile-container">
-          <Nav/>
+          <SideNav/>
           <Router>
             <UserInfo path="/profile/userinfo"/>
             <ChangePassword path="/profile/changepassword"/>

@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import "./../style/_bokningar.scss";
 import Header from "./Header";
 import Footer from "./Footer";
-import Nav from "./Nav";
+import SideNav from "./SideNav";
 import firebase from "./FirebaseConfig";
 
 class ReBook extends Component {
+
   state = {
-    booking:{}
+    booking:{},
+    message:""
   };
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -26,9 +29,9 @@ class ReBook extends Component {
       }.bind(this)
     );
   }
+
   updateBooking(e){
     e.preventDefault();
-    
     var user=firebase.auth().currentUser
     if(user){
         var product_id=localStorage.getItem("product_id")
@@ -40,18 +43,23 @@ class ReBook extends Component {
             firstName:e.target.elements.firstname.value,
             lastName:e.target.elements.familyname.value,
             phoneNumber:e.target.elements.telefon.value,
-        }).then(res=>{
-            console.log(res)
-            window.location.replace("http://localhost:3000/profile/minabokningar")
         })
     }
   }
 
+  showMessage=()=>{
+
+    this.setState({
+      message:"Dina ändringar har sparats!"
+    })
+
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <>
         <Header />
-        <Nav />
+        <SideNav />
         <section >
           <div >
             <form onSubmit={this.updateBooking.bind(this)}>
@@ -63,12 +71,14 @@ class ReBook extends Component {
                 <input type="text" name="firstname" defaultValue={this.state.booking.firstName}></input><br />
                 <input type="text" name="familyname"  defaultValue={this.state.booking.familyName}></input><br />
                 <input type="number" name="telefon" defaultValue={this.state.booking.phoneNumber}></input><br />
-                <button className="btn">Ändra</button>
+                <button onClick={this.showMessage} className="btn">Ändra</button>
+
+                <p>{this.state.message}</p>
             </form>
           </div>
         </section>
         <Footer />
-      </React.Fragment>
+      </>
     );
   }
 }

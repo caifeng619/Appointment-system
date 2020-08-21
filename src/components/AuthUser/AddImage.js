@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
+import SideNav from "../SideNav";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -12,7 +12,7 @@ class AddImage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <Nav />
+        <SideNav />
         <section>
           <form onSubmit={this.onSubmitUpload}>
             <p>Ladda upp en bild för din profil</p>

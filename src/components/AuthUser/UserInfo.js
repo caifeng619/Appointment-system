@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../FirebaseConfig";
-import Nav from "../Nav";
+import SideNav from "../SideNav";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -56,7 +56,7 @@ class UserInfo extends Component {
     return (
       <div>
         <Header/>
-        <Nav/>
+        <SideNav/>
         <section className="userinfo-container">
           <h4>Mina uppgifter</h4>
           <form onSubmit={this.onSubmitSaveUserinfo.bind(this)}>

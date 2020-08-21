@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../style/_loginform.scss";
 import firebase from "../FirebaseConfig";
-import Nav from "../Nav";
+import SideNav from "../SideNav";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -49,7 +49,7 @@ class ResetPassword extends Component {
     return (
       <React.Fragment>
         <Header/>
-        <Nav/>
+        <SideNav/>
         <section>
           <h4>Ändra lösenord</h4>
           <form id="change-password-form" onSubmit={this.changePassword.bind(this)} className="login-form">
