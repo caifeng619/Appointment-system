@@ -14,7 +14,7 @@ class KontaktForm extends React.Component {
         firebase.auth().onAuthStateChanged(function(user){
             if(user){
                 const db=firebase.firestore()
-                var product_id=localStorage.getItem("product_id")
+                var product_id=localStorage.getItem("booking_id")
                 const docRef=db.collection("booking").doc(product_id)
                 docRef.get().then(booking=>{
                     this.setState({

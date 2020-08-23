@@ -17,7 +17,7 @@ class KontaktForm extends React.Component {
             var userid=user.uid
             console.log(userid)
             const db=firebase.firestore()
-            var product_id=localStorage.getItem("product_id");
+            var product_id=localStorage.getItem("booking_id");
             console.log(product_id);
             const docRef=db.collection("booking").doc(product_id)
             docRef.update({

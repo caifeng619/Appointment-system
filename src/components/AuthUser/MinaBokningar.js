@@ -9,7 +9,20 @@ import firebase from "../FirebaseConfig";
 class MinaBokningar extends Component {
   state = {
     bookings: [],
+    message:""
   };
+
+  // snapshotToArray=snapshot=>{
+
+  //   let returnArr=[]
+  //   snapshot.forEach(childSnapshot=>{
+  //     let item = childSnapshot.val();
+  //     item.key = childSnapshot.key;
+  //     returnArr.push(item);
+  //   })
+  //   return returnArr;
+  // }
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -18,19 +31,29 @@ class MinaBokningar extends Component {
           db.collection("booking")
             .where("userid", "==", userid)
             .where("status", "==", "booked")
-            .onSnapshot((snapshot) => {
-              let changes = snapshot.docChanges();
-              changes.forEach((change) => {
-                console.log(change.doc.data());
-              });
-
-              this.setState({
-                bookings: changes,
-              })
-            });
+            .get()
+            .then(snapshot=>{
+              // if(snapshot.empty){
+              //   this.setState({
+              //     message:"Du har ingen bokningar!"
+              //   })
+              //   return
+              // }
+              console.log(snapshot)
+              let returnArr=[]
+              snapshot.forEach(doc=>{
+                let item=doc.data()
+                item.key=doc.id
+                returnArr.push(item)
+                
+                console.log(doc.id, "=>", doc.data())})
+                this.setState({
+                  bookings:returnArr
+                })
+                // console.log(returnArr[0].key)
+            })
         } else {
-          alert("Du har inte loggat in än!");
-        }
+          alert("Du har inte loggat in än!")}
       }.bind(this)
     );
   }
@@ -43,19 +66,19 @@ class MinaBokningar extends Component {
         <section >
           <div className="bokningar-container">
           <>
-            {this.state.bookings.map((booking) => (
-              <BokningCard
-                key={booking.doc.id}
-                id={booking.doc.id}
-                name={booking.doc.data().name}
-                firstName={booking.doc.data().firstName}
-                familyName={booking.doc.data().familyName}
-                price={booking.doc.data().price}
-                datum={booking.doc.data().date}
-                tid={booking.doc.data().time}
-                phoneNumber={booking.doc.data().phoneNumber}
+            {this.state.bookings.map((booking) =>
+               <BokningCard
+                key={booking.key}
+                id={booking.key}
+                name={booking.name}
+                firstName={booking.firstName}
+                familyName={booking.familyName}
+                price={booking.price}
+                datum={booking.date}
+                tid={booking.time}
+                phoneNumber={booking.phoneNumber}
               />
-              ))}
+              )}
             </>
           </div>
         </section>

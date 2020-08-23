@@ -27,22 +27,28 @@ class BookingForm extends Component {
             }
         )
     }
-    onSubmitSaveTime=(e)=>{
+
+    saveBookingTofirestore=(e)=>{
         e.preventDefault();
         var user=firebase.auth().currentUser
         if(user){
             var userid=user.uid
             console.log(userid)
-            const db=firebase.firestore()
-            var product_id=localStorage.getItem("product_id");
-            console.log(product_id);
-            const docRef=db.collection("booking").doc(product_id)
-            docRef.update({
+            const {name, description, price}=this.props
+            const docRef=firebase.firestore().collection("booking")
+
+            docRef.add({
+                userid,
+                name,
+                description,
+                price,
                 date:this.state.date,
-                time:this.state.time
+                time:this.state.time,
+                status:"isbooking"
             }).then(res=>{
-                console.log(res)
-                window.location.replace("/form")
+                console.log(res.id)
+                localStorage.setItem("booking_id", res.id)
+                window.location.replace("/form") 
             })
         }else{
             console.log("error")
@@ -56,7 +62,7 @@ class BookingForm extends Component {
                 style={customStyles}
                 contentLabel="Boking form">
                 <div className="choosetime-container">
-                    <form onSubmit={this.onSubmitSaveTime}>
+                    <form onSubmit={this.saveBookingTofirestore}>
                         <h3>Välj datum och en tid!</h3>  
                         <p>Du kan ändra eller avboka din tid utan kostnad online.</p>
                         <label>Datum</label>

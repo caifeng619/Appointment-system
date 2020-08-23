@@ -19,11 +19,11 @@ class CancelBooking extends Component {
     const db=firebase.firestore()
     console.log(this.props.cancelId)
     var id=this.props.cancelId
-    db.collection("booking").doc(id).delete().then(
-      this.props.callbackFromparent(false)
-    )
-    
-}
+    db.collection("booking").doc(id).delete()
+    // .then(
+    //   this.props.callbackFromparent(false))
+    .then(window.location.replace("/profile/minabokningar") )
+  }
   render() {
     return (
       <>
